@@ -4,8 +4,8 @@
   "description": "starterfiles",
   "main": "server.js",
   "scripts": {
-    "start": "node v1/server.js",
-    "dev": "nodemon v1/server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "format": "prettier --write .",
     "env": "cp .env.example .env",
     "test": "echo \"Error: no test specified\" && exit 1"

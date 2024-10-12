@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
-import { PORT, URI } from "./config/index.js";
-import Route from "./routes/index.js";
+import { PORT, URI } from "./v1/config/index.js";
+import Route from "./v1/routes/index.js";
 
 // === 1 - CREATE SERVER ===
 const server = express();
