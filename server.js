@@ -7,9 +7,17 @@ import Route from "./v1/routes/index.js";
 
 // === 1 - CREATE SERVER ===
 const server = express();
-// Allow request from any source. In real production, this should be limited to allowed origins only
-server.use(cors());
-server.disable("x-powered-by"); //Reduce fingerprinting
+
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:3000', // Allow only this origin
+  credentials: true, // Allow credentials (cookies, auth headers)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+};
+
+server.use(cors(corsOptions)); // Apply CORS configuration
+server.disable("x-powered-by"); // Reduce fingerprinting
 server.use(cookieParser());
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json());
@@ -19,12 +27,12 @@ server.use(express.json());
 mongoose.promise = global.Promise;
 mongoose.set("strictQuery", false);
 mongoose
-	.connect(URI, {
-		useNewUrlParser: true,
-		useUnifiedTopology: true,
-	})
-	.then(console.log("Connected to database"))
-	.catch((err) => console.log(err));
+  .connect(URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to database"))
+  .catch((err) => console.log(err));
 
 // === 4 - CONFIGURE ROUTES ===
 // Configure Route
@@ -32,5 +40,5 @@ Route(server);
 
 // === 5 - START UP SERVER ===
 server.listen(PORT, () =>
-	console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`Server running on http://localhost:${PORT}`)
 );
