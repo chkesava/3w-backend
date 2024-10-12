@@ -10,7 +10,10 @@ const server = express();
 
 // CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:3000', // Allow only this origin
+  origin: [
+    'http://localhost:3000', // Allow local development
+    'https://3wkesavaassignment.netlify.app', // Allow Netlify deployed frontend
+  ],
   credentials: true, // Allow credentials (cookies, auth headers)
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
