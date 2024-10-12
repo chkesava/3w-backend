@@ -1,0 +1,12 @@
+POST http://localhost:5005/v1/posts/create
+Content-Type: application/json
+Cookie: SessionID=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDk1Y2IzNTc0YjVkNjBhY2ZhYzQ4NyIsImlhdCI6MTcyODcxMjE5NSwiZXhwIjoxNzI4NzEzMzk1fQ.gtOueTD8B7YtLDciuNowmrrnF8hnbR16voB7KBr0MS0
+
+{
+    "name": "abaa ",
+    "social_media_handle": " instagram @annaaba",
+    "image_url": "https://example.com/johndoe.jpg"
+}
+
+
+POST 
